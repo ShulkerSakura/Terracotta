@@ -46,7 +46,7 @@ pub mod logging_windows;
 #[cfg(target_os = "macos")]
 pub mod ui_macos;
 
-pub const MOTD: &'static str = "§6§l双击进入陶瓦联机大厅（请保持陶瓦运行）";
+pub const MOTD: &'static str = "§6§l陶瓦联机大厅";
 
 #[cfg(target_family = "windows")]
 pub mod lock_windows;
@@ -602,3 +602,4 @@ fn cleanup() {
         }
     });
 }
+
