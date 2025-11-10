@@ -100,8 +100,6 @@ impl EasytierFactory {
                     Argument::DHCP => push!["-d"],
                     Argument::HostName(name) => push!["--hostname", name.as_ref()],
                     Argument::IPv4(address) => push!["--ipv4", address.to_string()],
-                    Argument::TcpWhitelist(port) => push![format!("--tcp-whitelist={}", port)],
-                    Argument::UdpWhitelist(port) => push![format!("--udp-whitelist={}", port)],
                 }
             }
             built
