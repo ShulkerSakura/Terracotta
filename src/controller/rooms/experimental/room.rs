@@ -142,9 +142,6 @@ pub fn start_host(room: Room, port: u16, player: Option<String>, capture: AppSta
     let mut args = compute_arguments(&room);
     args.push(Argument::HostName(Cow::Owned(format!("scaffolding-mc-server-{}", scaffolding))));
     args.push(Argument::IPv4(Ipv4Addr::new(10, 144, 144, 1)));
-    args.push(Argument::TcpWhitelist(scaffolding));
-    args.push(Argument::TcpWhitelist(port));
-    args.push(Argument::UdpWhitelist(port));
 
     let easytier = easytier::FACTORY.create(args);
     let capture = {
@@ -215,8 +212,6 @@ pub fn start_host(room: Room, port: u16, player: Option<String>, capture: AppSta
 pub fn start_guest(room: Room, player: Option<String>, capture: AppStateCapture) {
     let mut args = compute_arguments(&room);
     args.push(Argument::DHCP);
-    args.push(Argument::TcpWhitelist(0));
-    args.push(Argument::UdpWhitelist(0));
     let easytier = easytier::FACTORY.create(args);
     let capture = {
         let Some(state) = capture.try_capture() else {
