@@ -43,6 +43,4 @@ pub enum Argument {
     DHCP,
     HostName(CowString),
     IPv4(Ipv4Addr),
-    TcpWhitelist(u16),
-    UdpWhitelist(u16),
 }
